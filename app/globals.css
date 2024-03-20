@@ -1,40 +1,54 @@
 body{
   margin: 0;
-  background-color: #303030;
-  color: white;
 }
-.title{
-  text-align: center;
-  margin-top: 150px;
+.list-bg {
+  background: rgb(249, 250, 255);
+  padding: 10px;
 }
-.title-sub{
-  text-align: center;
-}
-.food{
-  margin: 20px auto;
-  width: 200px;
-  background-color: rgb(212, 212, 212);
-  color: black;
+.list-item {
+  background: white;
+  border-radius: 10px;
   padding: 20px;
+  margin-bottom: 5px;
+  box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
+}
+.list-item h4 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+}
+.list-item p {
+  color: grey;
+  margin : 5px 0px;
+}
+.p-20 {
+  padding: 20px;
+}
+input {
+  box-sizing: border-box;
+  padding: 10px;
+  display: block;
+  margin-bottom: 10px;
+}
+button {
+  padding: 10px 15px;
+  background: lightgray;
+  border: none;
   border-radius: 5px;
+} 
+a{
+  text-decoration: none;
+  color: black;
 }
 .navbar {
   background: white;
   padding: 20px;
 }
-.navbar a{
+.navbar a {
   margin-right: 10px;
-  text-decoration:
-  none;
+  text-decoration: none;
+  color: black;
 }
-.food-img{
-  width: 100%;
-  height: auto;
-}
-.cart-item {
-  padding: 10px;
-  display: flex;
-  justify-content: space-around;
-  border-bottom: 1px solid grey;
-  line-height: 0px;
+.logo {
+  font-weight: bold;
 } 

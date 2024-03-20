@@ -1,11 +1,10 @@
+import { connectDB } from "@/util/database"
 
-export default function Home() {
-  let name= 'park'
+export default async function Home() {
+  const db = (await connectDB).db("forum")
+  let result=await db.collection('post').find().toArray()
+  console.log(result)
   return (
-    <div>
-      <h4 className="title">애플후레시</h4>
-      <p className="title-sub">by dev { name }</p>
-    </div>
-  );
+    <div>하이요</div>
+  )
 }
-

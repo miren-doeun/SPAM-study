@@ -1,31 +1,21 @@
-'use client'
-import {useState} from "react"
-export default function list() {
-  let 상품=['Tomatose', 'pasta', 'Coconut']
-  let [수량,수량변경]=useState([0,0,0])
+import { connectDB } from "@/util/database.js"
+import Link from "next/link";
+import DetailLink from "./DetailLink";
+
+export default async function List() {
+  let db = (await connectDB).db('forum')
+  let result = await db.collection('post').find().toArray()
   return (
-    <div>
-      <h4 className="title">상품목록</h4>
+    <div className="list-bg">
       {
-        상품.map((a,i)=>{
-          return(
-            <div className="food" key={i}>
-              <img src={`/food${i}.png`} className="food-img"/>
-              <h4>{a} $40</h4>
-              <span>{수량[i]}</span>
-              <button onClick={()=>{
-                let copy=[...수량]
-                copy[i]++
-                수량변경(copy)
-              }}>+</button>
-              <button onClick={()=>{
-                let copy=[...수량]
-                copy[i]--
-                수량변경(copy)
-              }}>-</button>
-            </div>
-          )
-        }) }
+        result.map((a, i)=>
+          <div className="list-item">
+            <Link prefetch={false} href={'/detail/' + result[i]._id}><h4>{a.title}</h4></Link>
+            <Link prefetch={false} href={'/edit/'+result[i]._id}>✏️</Link>
+            <p>11</p>
+          </div>
+        )
+      }
     </div>
-  );
+  )
 }
